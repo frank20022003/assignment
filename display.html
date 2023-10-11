@@ -13,7 +13,13 @@
             <th>Player Name</th>
             <th>Player Role</th>
         </tr>
-        <?php include 'display.php'; ?>
+        <?php
+            include 'db.php';
+            $players = getPlayers($conn);
+            foreach ($players as $player) {
+                echo "<tr><td>" . $player['player_name'] . "</td><td>" . $player['player_role'] . "</td></tr>";
+            }
+        ?>
     </table>
 </body>
 </html>
